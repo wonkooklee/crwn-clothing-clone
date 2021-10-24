@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { withRouter } from "react-router";
 
 import { auth } from "../../firebase/firebase.utils";
 
@@ -8,7 +7,7 @@ import { ReactComponent as Logo } from "../../assets/crown.svg";
 
 import "./Header.scss";
 
-const Header = ({ user, history }) => {
+const Header = ({ user }) => {
   return (
     <header className="header">
       <Link className="logo-container" to="/">
@@ -26,7 +25,6 @@ const Header = ({ user, history }) => {
             className="option"
             onClick={() => {
               auth.signOut();
-              history.push("/");
             }}
           >
             SIGN OUT
@@ -43,4 +41,4 @@ const Header = ({ user, history }) => {
   );
 };
 
-export default withRouter(Header);
+export default Header;
